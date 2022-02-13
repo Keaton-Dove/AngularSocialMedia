@@ -1,9 +1,11 @@
 <!-- Creating a navbar to serve as the page header -->
 <mat-toolbar>    
+    
+    <!--<a class="nav-link home" href="/#/"> <img src="logo.png"> </a>-->
     <span> Angular social media app </span>
     
     <div class="spacer"></div>
-    <a mat-button> Sign-in </a>
-    <a mat-button> Sign-up </a>
-    <a mat-button> About </a>
+    <a mat-button routerLink="/sign_in"> Sign-in </a>
+    <a mat-button routerLink="/sign_up"> Sign-up </a>
+    <a mat-button routerLink="/about"> About </a>
 </mat-toolbar>
