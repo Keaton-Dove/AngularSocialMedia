@@ -1,27 +1,25 @@
-# TestApp
+# Created by Keaton Dove, 2022
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+# This project is a work in progress.
 
-## Development server
+    'AngularSocialMedia' does not have any particular direction, inspiration, or real-world functionality. The purpose of this project is to serve as a learning device for me to
+    learn front-end web development. The plan is to create a simple social media/blog website using Angular version 13.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+        Functionalities will include: 
+            Viewing posts from other users without signing in,
+            Creaing a user account,
+            Making a text based post,
+            Commenting on posts,
+            Navigating between pages (intuitive user interface)
 
-## Code scaffolding
+            Potential work after app is functional:
+                Integrate MySQL as app's backend,
+                Perform CRUD operations using MySQL
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    Thank you for viewing my project. If you have any questions or concerns, please contact me at keatondove10@gmail.com.
 
-## Build
+# Attributions and notes:
+    This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+    To run program, open a terminal, navigate to project directory, run `ng serve` for a dev server. Navigate to `http://localhost:4200/` in a web browser
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Last updated 2/14/2022
