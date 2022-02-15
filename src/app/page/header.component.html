@@ -1,1 +1,16 @@
-<app-navbar></app-navbar>
+<!-- Creating a navbar to serve as the page header -->
+<mat-toolbar color="primary" class="mat-elevation-z7">    
+
+    <!-- App icon, links to home page -->
+    <a class="nav-link home" routerLink="/"> 
+        <img src="https://www.pinclipart.com/picdir/big/178-1785162_white-home-icon-png-vector-royalty-free-download.png" height="30" alt="Home"> 
+    </a>
+
+    <b class="navbar-brand" color="primary"> Angular Social Media Example </b>
+    
+    <div class="spacer"></div>
+    <a mat-raised-button routerLink="/" color="accent"> Sign-in </a>
+    <a mat-button routerLink="/"        color="black">  Sign-up </a>
+    <a mat-button routerLink="/about"   color="black">  About   </a>
+
+</mat-toolbar>
