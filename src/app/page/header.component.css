@@ -1,6 +1,9 @@
-.spacer{
-    flex: 1 1 auto
+.justify-right{
+    flex: 1 1 auto;
 }
-* {
-    padding: 0px;
-};
+.nav-link {
+    margin-left: 10px;
+}
+.gap {
+    margin-right: 8px;
+}
