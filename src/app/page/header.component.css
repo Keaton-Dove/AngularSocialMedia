@@ -1,8 +1,12 @@
-.justify-right{
-    flex: 1 1 auto;
+
+.left-indent {
+    margin-left: 20%;
 }
-.nav-link {
-    margin-left: 10px;
+.right-indent {
+    margin-right: 20%;
+}
+.justify-right {
+    flex: 1 1 auto;
 }
 .gap {
     margin-right: 8px;

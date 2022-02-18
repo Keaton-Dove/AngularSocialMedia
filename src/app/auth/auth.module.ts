@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth.component';
-import { AuthRoutingModule } from './/auth-routing.module';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 @NgModule({

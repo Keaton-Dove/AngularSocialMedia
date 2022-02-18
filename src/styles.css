@@ -1,11 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    margin: 0;
+    margin: 0%;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-
 }
 body{
-    background-color: rgba(105, 105, 105, 0.972);
+    background-color: #c2c2c2;
 }
