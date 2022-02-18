@@ -1,11 +1,15 @@
+// Built in Angular resoures
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// My modules
+import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
+
+// My components
 import { AppComponent } from './app.component';
 import { HeaderComponent, FooterComponent } from './page';
 
@@ -21,7 +25,8 @@ import { HeaderComponent, FooterComponent } from './page';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
