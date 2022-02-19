@@ -2,7 +2,7 @@
 
 @include mat-core();
 
-$app-theme-primary: mat-palette($mat-indigo, 900);
+$app-theme-primary: mat-palette($mat-indigo, 700);
 $app-theme-secondary: mat-palette($mat-indigo, A200, A100, A400);
 
 $app-theme: mat-light-theme($app-theme-primary, $app-theme-secondary);

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
@@ -10,7 +11,8 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthComponent
   ],
   imports: [
-    AuthRoutingModule
+    AuthRoutingModule,
+    MatFormFieldModule
   ]
 })
 export class AuthModule { }
