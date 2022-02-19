@@ -1,8 +1,65 @@
+<div class="Authorization page">
+    <div class="top-spacer"></div>
 
-<mat-form-field MatFormFieldAppearance = 'fill'>
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="Email" >
-</mat-form-field>
+    <h1 class="header-format">{{ h1Text }}</h1>
 
-<a> Already have an account? </a>
-<a [routerLink]="['/sign-in']" > Sign-in</a>
+    <div *ngIf="pageName == 'sign-in'"> 
+        
+        <div>
+            <mat-form-field appearance="fill" hideRequiredMarker>
+                <mat-label>Email</mat-label>
+                <input matInput required>
+            </mat-form-field>
+        </div>    
+        <div>
+            <mat-form-field appearance="fill" hideRequiredMarker>
+                <mat-label>Password</mat-label>
+                <input class="censor-input" matInput required>
+            </mat-form-field>
+        </div>
+
+        <div> Need an account? 
+            <a [routerLink]="['/sign-up']"> Sign-up</a>
+        </div>
+    </div>
+
+    <div *ngIf="pageName == 'sign-up'">
+        
+        <div>
+            <mat-form-field appearance="fill" hideRequiredMarker>
+                <mat-label>Username</mat-label>
+                <input matInput required>
+            </mat-form-field>
+        </div> 
+        <div>
+            <mat-form-field appearance="fill" hideRequiredMarker>
+                <mat-label>Email</mat-label>
+                <input matInput required>
+            </mat-form-field>
+        </div>    
+        <div>
+            <mat-form-field appearance="fill" hideRequiredMarker>
+                <mat-label>Password</mat-label>
+                <input class="censor-input" matInput required>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" hideRequiredMarker>
+                <mat-label>Confirm Password</mat-label>
+                <input class="censor-input" matInput required>
+            </mat-form-field>
+        </div>
+
+        <div> Already have an account?
+            <a [routerLink]="['/sign-in']"> Sign-in</a>
+        </div>
+
+    </div>
+
+    <div>
+        <a mat-raised-button color="primary" class="submit-button-format">
+            <b>Submit</b>
+        </a>
+    </div>
+    
+</div>

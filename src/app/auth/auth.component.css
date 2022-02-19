@@ -1,0 +1,28 @@
+.top-spacer {
+    margin-top: 10%;
+}
+
+.header-format {
+    margin-bottom: 20px;
+}
+
+.censor-input {
+    -webkit-text-security: disc;
+}
+
+.submit-button-format {
+    height: 75px;
+    line-height: 75px;
+    width: 130px;
+    font-size: 20px;
+}
+
+/* Formatting form field boxes */
+mat-form-field {
+    width:400px;
+    font-size: 22px;
+}
+
+* {
+    text-align: center;
+}
