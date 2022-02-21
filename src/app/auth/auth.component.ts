@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -8,14 +9,21 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-
+  
+  form: FormGroup;
   pageName: String = '';
   h1Text: String = '';
 
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) { 
+    this.form = this.fb.group({
+      'username': ['', Validators.required],
+      'password': ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.route.url.subscribe(data => {

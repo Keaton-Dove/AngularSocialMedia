@@ -3,63 +3,71 @@
 
     <h1 class="header-format">{{ h1Text }}</h1>
 
-    <div *ngIf="pageName == 'sign-in'"> 
-        
-        <div>
-            <mat-form-field appearance="fill" hideRequiredMarker>
-                <mat-label>Email</mat-label>
-                <input matInput required>
-            </mat-form-field>
-        </div>    
-        <div>
-            <mat-form-field appearance="fill" hideRequiredMarker>
-                <mat-label>Password</mat-label>
-                <input class="censor-input" matInput required>
-            </mat-form-field>
+    <form [formGroup]="form">
+
+            <!-- Page elements for sign-in page -->
+        <div *ngIf="pageName == 'sign-in'"> 
+            
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Username</mat-label>
+                    <input matInput required>
+                </mat-form-field>
+            </div>    
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Password</mat-label>
+                    <input class="censor-input" matInput required>
+                </mat-form-field>
+            </div>
         </div>
 
-        <div> Need an account? 
-            <a [routerLink]="['/sign-up']"> Sign-up</a>
+        <!-- Page elements for sign-up page -->
+        <div *ngIf="pageName == 'sign-up'">
+            
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Username</mat-label>
+                    <input matInput required>
+                </mat-form-field>
+            </div> 
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Email</mat-label>
+                    <input matInput required>
+                </mat-form-field>
+            </div>    
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Password</mat-label>
+                    <input class="censor-input" matInput required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Confirm Password</mat-label>
+                    <input class="censor-input" matInput required>
+                </mat-form-field>
+            </div>
         </div>
+
+        <div>
+            <a mat-raised-button color="primary" class="submit-button-format" 
+            [disabled]="!form.valid" type="submit">
+                <b>Submit</b>
+            </a>
+        </div>
+
+    </form>  
+
+    <!-- Submit button and subtext -->
+    <div *ngIf="pageName == 'sign-in'; else signUp"> Need an account? 
+        <a [routerLink]="['/sign-up']"> Sign-up</a>
     </div>
-
-    <div *ngIf="pageName == 'sign-up'">
-        
-        <div>
-            <mat-form-field appearance="fill" hideRequiredMarker>
-                <mat-label>Username</mat-label>
-                <input matInput required>
-            </mat-form-field>
-        </div> 
-        <div>
-            <mat-form-field appearance="fill" hideRequiredMarker>
-                <mat-label>Email</mat-label>
-                <input matInput required>
-            </mat-form-field>
-        </div>    
-        <div>
-            <mat-form-field appearance="fill" hideRequiredMarker>
-                <mat-label>Password</mat-label>
-                <input class="censor-input" matInput required>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="fill" hideRequiredMarker>
-                <mat-label>Confirm Password</mat-label>
-                <input class="censor-input" matInput required>
-            </mat-form-field>
-        </div>
-
+    <ng-template #signUp>
         <div> Already have an account?
             <a [routerLink]="['/sign-in']"> Sign-in</a>
         </div>
+    </ng-template>
 
-    </div>
-
-    <div>
-        <a mat-raised-button color="primary" class="submit-button-format">
-            <b>Submit</b>
-        </a>
-    </div>
-    
 </div>
