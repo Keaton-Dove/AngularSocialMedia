@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -31,6 +31,10 @@ export class AuthComponent implements OnInit {
       this.pageName = data[data.length - 1].path;
       // Conditional statement checking page name, assigning h1 text accordingly
       this.h1Text = (this.pageName == 'sign-in') ? 'Sign-in' : 'Sign-up';
+      if (this.pageName == 'sign-up') {
+        this.form.addControl('email', new FormControl());
+        this.form.addControl('confirm-password', new FormControl());
+      }
     });
   }
 
