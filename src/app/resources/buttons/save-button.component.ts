@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-save-button',
   templateUrl: './save-button.component.html',
   styleUrls: ['./save-button.component.css']
 })
-export class SaveButtonComponent implements OnInit {
+export class SaveButtonComponent {
 
-  constructor() { }
+  constructor(
+    private router: Router
+
+  ) { }
 
   ngOnInit(): void {
   }

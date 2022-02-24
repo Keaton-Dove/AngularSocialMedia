@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // My modules
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
+import { ResourcesModule } from './resources';
+import { HomeModule } from './home/home.module';
 
 // My components
 import { AppComponent } from './app.component';
@@ -26,7 +28,9 @@ import { HeaderComponent, FooterComponent } from './page';
     MatToolbarModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    AuthModule
+    AuthModule,
+    ResourcesModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

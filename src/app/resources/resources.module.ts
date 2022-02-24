@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SaveButtonComponent } from './buttons';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 
 @NgModule({
@@ -9,7 +13,9 @@ import { SaveButtonComponent } from './buttons';
     SaveButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [
     SaveButtonComponent
