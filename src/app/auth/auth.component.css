@@ -1,5 +1,5 @@
 .top-spacer {
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 .header-format {
@@ -21,7 +21,7 @@
 /* Formatting form field boxes */
 mat-form-field {
     width:400px;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 * {
