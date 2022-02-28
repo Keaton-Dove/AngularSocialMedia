@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../functionality';
 
 @Component({
   selector: 'app-auth',
@@ -12,11 +13,14 @@ export class AuthComponent implements OnInit {
   form: FormGroup;
   pageName: String = '';
   h1Text: String = '';
+  submitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService
+
   ) { 
     this.form = this.fb.group({
       'username': ['', Validators.required],
@@ -39,5 +43,6 @@ export class AuthComponent implements OnInit {
 
   submit() {
     const credentials = this.form.value;
+    this.userService.authorize(this.pageName, credentials);
   }
 }
