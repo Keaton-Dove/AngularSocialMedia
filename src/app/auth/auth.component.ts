@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 import { UserService } from '../functionality';
 
 @Component({
@@ -16,13 +18,14 @@ export class AuthComponent implements OnInit {
   submitted: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private httpCLient: HttpClient
 
   ) { 
-    this.form = this.fb.group({
+    this.form = this.formBuilder.group({
       'username': ['', Validators.required],
       'password': ['', Validators.required]
     });
@@ -43,6 +46,7 @@ export class AuthComponent implements OnInit {
 
   submit() {
     const credentials = this.form.value;
+    console.log(this.form.getRawValue());
     this.userService.authorize(this.pageName, credentials);
   }
 }

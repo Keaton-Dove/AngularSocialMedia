@@ -3,7 +3,7 @@
 
     <h1 class="header-format">{{ h1Text }}</h1>
 
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
         
         <!-- Page elements for sign-in page -->
         <div *ngIf="pageName == 'sign-in'"> 
@@ -53,10 +53,10 @@
 
     <!-- Submit button and subtext -->
         <div>
-            <a mat-raised-button color="primary" class="submit-button-format" 
+            <button mat-raised-button color="primary" class="submit-button-format" 
             [disabled]="!form.valid">
                 <b>Submit</b>
-            </a>
+            </button>
         </div>
     </form>  
 

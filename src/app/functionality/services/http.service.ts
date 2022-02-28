@@ -7,6 +7,7 @@ import { DataService } from './data.service';
 
 @Injectable()
 export class HttpService {
+    
     posts: any;
     rootUrl: string = environment.rootUrl;
 
