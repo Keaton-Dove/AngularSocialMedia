@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-import { UserService } from '../functionality';
+import { UserService, Errors } from '../functionality';
 
 @Component({
   selector: 'app-auth',
@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit {
   pageName: String = '';
   h1Text: String = '';
   submitted: boolean = false;
+  errors: Errors = {errorsDict: {}};
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,8 +46,18 @@ export class AuthComponent implements OnInit {
   }
 
   submit() {
-    const credentials = this.form.value;
     console.log(this.form.getRawValue());
-    this.userService.authorize(this.pageName, credentials);
+    this.submitted = true;
+    this.errors = {errorsDict: {}};
+
+    const credentials = this.form.value;
+    this.userService.authorize(this.pageName, credentials)
+    .subscribe(res => this.router.navigateByUrl('/'),
+    err => {
+      this.submitted = false;
+      //this.errors = err;
+      this.errors = {errorsDict: {fake: 'error'}}
+      console.log(this.errors);
+    });
   }
 }

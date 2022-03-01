@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ErrorFormatComponent } from './error-format.component';
 import { SaveButtonComponent } from './buttons';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-
-
-
 @NgModule({
   declarations: [
-    SaveButtonComponent
+    SaveButtonComponent,
+    ErrorFormatComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   exports: [
-    SaveButtonComponent
+    SaveButtonComponent,
+    ErrorFormatComponent
   ]
 })
 export class ResourcesModule { }

@@ -18,6 +18,10 @@
     font-size: 20px;
 }
 
+fieldset {
+    border: 0;
+}
+
 /* Formatting form field boxes */
 mat-form-field {
     width:400px;

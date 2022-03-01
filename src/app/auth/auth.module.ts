@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
+import { FunctionalityModule } from '../functionality';
+import { ResourcesModule } from '../resources';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { AuthRoutingModule } from './auth-routing.module';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FunctionalityModule,
+    ResourcesModule
   ]
 })
 export class AuthModule { }

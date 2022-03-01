@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { ResourcesModule } from './resources';
 import { HomeModule } from './home/home.module';
-import { FunctionalityModule } from './functionality/functionality.module';
+import { FunctionalityModule } from './functionality';
 
 // My components
 import { AppComponent } from './app.component';
@@ -32,9 +32,9 @@ import { HeaderComponent, FooterComponent } from './page';
     BrowserAnimationsModule,
     AuthModule,
     ResourcesModule,
+    FunctionalityModule,
     HomeModule,
-    HttpClientModule,
-    FunctionalityModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
