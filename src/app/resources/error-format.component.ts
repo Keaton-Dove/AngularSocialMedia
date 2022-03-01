@@ -4,6 +4,7 @@ import { Errors } from '../functionality';
 @Component({
   selector: 'app-error-format',
   templateUrl: './error-format.component.html',
+  styleUrls: ['./error-format.component.css']
 })
 
 // This component formats the app's errors into an array of strings
