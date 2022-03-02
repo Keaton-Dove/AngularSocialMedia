@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
@@ -16,22 +17,27 @@ export class HttpService {
         private httpClient: HttpClient
     ) {}
 
+    private errorFix(error: any) {
+        return  throwError(error.error);
+      }
+
     // Building upon HttpClient methods to add functionality specific to ASM
     delete(urlSuffix: string): Observable<any> {
-        this.posts = this.httpClient.delete(this.rootUrl + urlSuffix);
-        return this.posts;
+        return this.httpClient.delete(this.rootUrl + urlSuffix)
+        .pipe(catchError(throwError));
     } 
     get(urlSuffix: string): Observable<any> {
-        this.posts = this.httpClient.get(this.rootUrl + urlSuffix);
-        return this.posts;
+        return this.httpClient.get(this.rootUrl + urlSuffix)
+        .pipe(catchError(throwError));
     }
     post(urlSuffix: string, object: Object = {}): Observable<any> {
-        this.posts = this.httpClient.post(this.rootUrl + urlSuffix, Object);
-        return this.posts;
+        return this.httpClient.post(this.rootUrl + urlSuffix, object)
+        .pipe(catchError(this.errorFix));
+
     }
     put(urlSuffix: string, object: Object = {}): Observable<any> {
-        this.posts = this.httpClient.put(this.rootUrl + urlSuffix, Object);
-        return this.posts;
+        return this.httpClient.put(this.rootUrl + urlSuffix, object)
+        .pipe(catchError(this.errorFix));
     }
 
 }

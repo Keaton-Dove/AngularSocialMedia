@@ -53,11 +53,11 @@ export class AuthComponent implements OnInit {
     const credentials = this.form.value;
     this.userService.authorize(this.pageName, credentials)
     .subscribe(res => this.router.navigateByUrl('/'),
-    err => {
-      this.submitted = false;
-      //this.errors = err;
-      this.errors = {errorsDict: {fake: 'error'}}
-      console.log(this.errors);
+      err => {
+        this.submitted = false;
+        this.errors = err;
+        //this.errors = {errorsDict: {fake: 'error'}}
+        console.log(this.errors);
     });
   }
 }
