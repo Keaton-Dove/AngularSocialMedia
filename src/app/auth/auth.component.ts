@@ -39,8 +39,10 @@ export class AuthComponent implements OnInit {
       // Conditional statement checking page name, assigning h1 text accordingly
       this.h1Text = (this.pageName == 'sign-in') ? 'Sign-in' : 'Sign-up';
       if (this.pageName == 'sign-up') {
-        this.form.addControl('email', new FormControl());
-        this.form.addControl('confirm-password', new FormControl());
+        this.form.addControl('email', this.formBuilder.control('',
+        [Validators.required, Validators.email]));
+        this.form.addControl('confirm-password', this.formBuilder.control('',
+        [Validators.required]));
       }
     });
   }
@@ -55,8 +57,8 @@ export class AuthComponent implements OnInit {
     .subscribe(res => this.router.navigateByUrl('/'),
       err => {
         this.submitted = false;
-        this.errors = err;
-        //this.errors = {errorsDict: {fake: 'error'}}
+        //this.errors = err;
+        this.errors = {errorsDict: {fake: 'error'}}
         console.log(this.errors);
     });
   }

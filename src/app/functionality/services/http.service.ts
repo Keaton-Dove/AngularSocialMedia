@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 import { DataService } from './data.service';
@@ -18,8 +18,8 @@ export class HttpService {
     ) {}
 
     private errorFix(error: any) {
-        return  throwError(error.error);
-      }
+        return throwError(error.error);
+    }
 
     // Building upon HttpClient methods to add functionality specific to ASM
     delete(urlSuffix: string): Observable<any> {
@@ -31,12 +31,12 @@ export class HttpService {
         .pipe(catchError(throwError));
     }
     post(urlSuffix: string, object: Object = {}): Observable<any> {
-        return this.httpClient.post(this.rootUrl + urlSuffix, object)
+        return this.httpClient.post(this.rootUrl + urlSuffix, JSON.stringify(object))
         .pipe(catchError(this.errorFix));
 
     }
     put(urlSuffix: string, object: Object = {}): Observable<any> {
-        return this.httpClient.put(this.rootUrl + urlSuffix, object)
+        return this.httpClient.put(this.rootUrl + urlSuffix, JSON.stringify(object))
         .pipe(catchError(this.errorFix));
     }
 

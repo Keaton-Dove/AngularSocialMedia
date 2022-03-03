@@ -22,7 +22,7 @@ export class UserService {
         if (formType == 'sign-in') { return this.sign_in(credentials); }
         else { return this.sign_up(credentials); }
     }
-
+    
     sign_in(credentials: any): Observable<User>{
         return this.httpService.post('/users/sign-in', {user: credentials})
             .pipe(map(data => { this.setAuthorization(data.user); 
