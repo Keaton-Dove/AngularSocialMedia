@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 // My modules
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,11 @@ import { FunctionalityModule } from './functionality';
 // My components
 import { AppComponent } from './app.component';
 import { HeaderComponent, FooterComponent } from './page';
+import { DatabaseService } from './database.service';
 
+HttpClientInMemoryWebApiModule.forRoot(
+  DatabaseService, { dataEncapsulation: false }
+)
 
 @NgModule({
   declarations: [
@@ -34,9 +39,12 @@ import { HeaderComponent, FooterComponent } from './page';
     ResourcesModule,
     FunctionalityModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule
   ],
-  providers: [],
+  providers: [
+    DatabaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,15 +12,14 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FunctionalityModule } from '../functionality';
 import { ResourcesModule } from '../resources';
 
-
 @NgModule({
   declarations: [
     AuthComponent
   ],
   imports: [
-    MatButtonModule,
     CommonModule,
     AuthRoutingModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,

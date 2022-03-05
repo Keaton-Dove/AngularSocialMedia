@@ -11,3 +11,6 @@
 .gap {
     margin-right: 8px;
 }
+.mat-stroked-button {
+    outline: 1px solid black;
+}

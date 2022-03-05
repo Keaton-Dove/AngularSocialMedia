@@ -1,1 +1,28 @@
-<p>post works!</p>
+<div>
+    <form [formGroup]="postForm" (ngSubmit)="submit()">
+
+        <fieldset [disabled]="submitted">
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Title</mat-label>
+                    <input matInput required formControlName="title">
+                </mat-form-field>
+            </div> 
+
+            <div>
+                <mat-form-field appearance="fill" hideRequiredMarker>
+                    <mat-label>Body</mat-label>
+                    <input matInput required formControlName="body">
+                </mat-form-field>
+            </div>
+        </fieldset>
+
+    </form>
+
+    <div>
+        <button mat-raised-button color="primary">
+            <b>Submit</b>
+        </button>
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  rootUrl: 'https://localhost:4200'
+  rootUrl: 'https://angularsocialmedia.com/api'
 };

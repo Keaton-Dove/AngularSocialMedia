@@ -41,7 +41,7 @@ export class AuthComponent implements OnInit {
       if (this.pageName == 'sign-up') {
         this.form.addControl('email', this.formBuilder.control('',
         [Validators.required, Validators.email]));
-        this.form.addControl('confirm-password', this.formBuilder.control('',
+        this.form.addControl('confirmPassword', this.formBuilder.control('',
         [Validators.required]));
       }
     });
@@ -57,8 +57,8 @@ export class AuthComponent implements OnInit {
     .subscribe(res => this.router.navigateByUrl('/'),
       err => {
         this.submitted = false;
-        //this.errors = err;
-        this.errors = {errorsDict: {fake: 'error'}}
+        this.errors = err;
+        //this.errors = {errorsDict: {fake: 'error'}}
         console.log(this.errors);
     });
   }
