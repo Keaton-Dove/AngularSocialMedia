@@ -7,11 +7,13 @@ import { User } from './functionality/models';
 })
 export class DatabaseService implements InMemoryDbService {
   
+  constructor(){}
+
   createDb() {
-    const users = [
+    return {users: [
       { id: 1, username: 'admin', password: 'admin' }
-    ];
-    return {users};
+    ]};
+    //return {users};
   }
 
   // generateId(users: User[]): number {

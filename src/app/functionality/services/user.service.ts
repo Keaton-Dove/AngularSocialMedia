@@ -4,11 +4,13 @@ import { map } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { DataService } from './data.service';
 import { User } from '../models';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class UserService {
 
     constructor(
+        private httpClient: HttpClient,
         private httpService: HttpService,
         private dataService: DataService
     ) {}
@@ -19,11 +21,11 @@ export class UserService {
     }
     
     sign_in(credentials: any): Observable<User> {
-        return this.httpService.post('/users/sign-in', {user: credentials})
+        return this.httpClient.post<User>('/users/sign-in/', credentials)
             .pipe(map(data => { return data; }));
     }
     sign_up(credentials: any): Observable<User> {
-        return this.httpService.post('/users', {user: credentials})
+        return this.httpClient.post<User>('api/users/', credentials)
             .pipe(map(data => { return data; }));
     }
 }

@@ -1,3 +1,4 @@
+import { PostModule } from './post/post.module';
 // Built-in Angular resoures
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,9 +20,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent, FooterComponent } from './page';
 import { DatabaseService } from './database.service';
 
-HttpClientInMemoryWebApiModule.forRoot(
-  DatabaseService, { dataEncapsulation: false }
-)
+// HttpClientInMemoryWebApiModule.forRoot(
+//   DatabaseService, { dataEncapsulation: false }
+// )
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ HttpClientInMemoryWebApiModule.forRoot(
     FunctionalityModule,
     HomeModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule
+    HttpClientInMemoryWebApiModule.forRoot(DatabaseService),
+    PostModule
   ],
   providers: [
     DatabaseService
