@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HttpService } from './http.service';
+
+//import { HttpService } from './http.service';
 import { DataService } from './data.service';
-import { User } from '../models';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models';
 
 @Injectable()
 export class UserService {
 
     constructor(
         private httpClient: HttpClient,
-        private httpService: HttpService,
+        //private httpService: HttpService,
         private dataService: DataService
     ) {}
 
@@ -24,8 +25,17 @@ export class UserService {
         return this.httpClient.post<User>('api/users/sign-in/', credentials)
             .pipe(map(data => { return data; }));
     }
+    _validateSI(credentials: any) {
+        
+    }
+
     sign_up(credentials: any): Observable<User> {
+        this._validateSU(credentials);
         return this.httpClient.post<User>('api/users/', credentials)
             .pipe(map(data => { return data; }));
     }
+    _validateSU(credentials: any) {
+        console.log(credentials.username);
+    }
+
 }
