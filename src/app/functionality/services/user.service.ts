@@ -21,7 +21,7 @@ export class UserService {
     }
     
     sign_in(credentials: any): Observable<User> {
-        return this.httpClient.post<User>('/users/sign-in/', credentials)
+        return this.httpClient.post<User>('api/users/sign-in/', credentials)
             .pipe(map(data => { return data; }));
     }
     sign_up(credentials: any): Observable<User> {

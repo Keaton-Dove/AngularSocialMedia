@@ -31,7 +31,7 @@ export class HttpService {
         .pipe(catchError(throwError));
     }
     post(urlSuffix: string, object: Object = {}): Observable<any> {
-        return this.httpClient.post(this.rootUrl + urlSuffix, object)
+        return this.httpClient.post<any>(this.rootUrl + urlSuffix, object)
         .pipe(catchError(this.errorFix));
     }
     put(urlSuffix: string, object: Object = {}): Observable<any> {

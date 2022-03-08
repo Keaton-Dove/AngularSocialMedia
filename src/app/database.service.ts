@@ -13,7 +13,6 @@ export class DatabaseService implements InMemoryDbService {
     return {users: [
       { id: 1, username: 'admin', password: 'admin' }
     ]};
-    //return {users};
   }
 
   // generateId(users: User[]): number {

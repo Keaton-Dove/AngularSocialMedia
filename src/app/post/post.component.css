@@ -1,4 +1,4 @@
-.top-spacer { margin-top: 4%; }
+.top-spacer { margin-top: 2%; }
 .header-format { margin-bottom: 20px;}
 
 .post-button-format {
@@ -22,7 +22,8 @@ mat-form-field {
 }
 
 textarea {
-    height: 400px;
+    height: 1000px;
+    max-height: 40vh;
 }
 
 * {

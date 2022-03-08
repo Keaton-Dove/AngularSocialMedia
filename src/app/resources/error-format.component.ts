@@ -20,7 +20,7 @@ export class ErrorFormatComponent {
       this.errorsArray = [];
       for (let key in errors.errorsDict) {
         this.errorsArray.push(key + " " + errors.errorsDict[key]);
-       }
+      }
     }
 
 }
