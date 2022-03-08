@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -23,11 +23,10 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("this is awful");
   }
 
 
-  submit(): void{
+  submit() {
     console.log(this.postForm.getRawValue());
   }
 }

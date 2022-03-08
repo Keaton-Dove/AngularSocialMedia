@@ -1,4 +1,3 @@
-import { PostModule } from './post/post.module';
 // Built-in Angular resoures
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { ResourcesModule } from './resources';
 import { HomeModule } from './home/home.module';
 import { FunctionalityModule } from './functionality';
+import { PostModule } from './post/post.module';
 
 // My components
 import { AppComponent } from './app.component';

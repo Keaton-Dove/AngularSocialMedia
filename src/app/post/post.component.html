@@ -1,4 +1,8 @@
 <div>
+    <div class="top-spacer"></div>
+
+    <h1 class="header-format">Make a new post!</h1>
+    
     <form [formGroup]="postForm" (ngSubmit)="submit()">
 
         <fieldset [disabled]="submitted">
@@ -12,17 +16,18 @@
             <div>
                 <mat-form-field appearance="fill" hideRequiredMarker>
                     <mat-label>Body</mat-label>
-                    <input matInput required formControlName="body">
+                    <textarea matInput required formControlName="body" placeholder="" appearance="fill">
+                    </textarea>
                 </mat-form-field>
             </div>
+
+            <div>
+                <button mat-raised-button color="primary" class="post-button-format">
+                    <b>Post</b>
+                </button>
+            </div>
+
         </fieldset>
 
     </form>
-
-    <div>
-        <button mat-raised-button color="primary">
-            <b>Submit</b>
-        </button>
-    </div>
-
 </div>

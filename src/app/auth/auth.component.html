@@ -4,7 +4,7 @@
     <h1 class="header-format">{{ h1Text }}</h1>
     <app-error-format [Errors]="errors"></app-error-format>
 
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
         <fieldset [disabled]="submitted">
 
             <!-- Form elements -->
@@ -55,5 +55,5 @@
             <a [routerLink]="['/sign-in']"> Sign-in</a>
         </div>
     </ng-template>
-
+    
 </div>

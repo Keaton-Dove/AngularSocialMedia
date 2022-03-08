@@ -1,14 +1,6 @@
-.top-spacer {
-    margin-top: 4%;
-}
-
-.header-format {
-    margin-bottom: 20px;
-}
-
-.censor-input {
-    -webkit-text-security: disc;
-}
+.top-spacer { margin-top: 4%; }
+.header-format { margin-bottom: 20px;}
+.censor-input { -webkit-text-security: disc; }
 
 .submit-button-format {
     margin-bottom: 30px;
@@ -18,14 +10,20 @@
     font-size: 20px;
 }
 
+.subtext-format {
+    position: relative;
+    margin-right: 165px;
+}
+
 fieldset {
     border: 0;
 }
 
 /* Formatting form field boxes */
 mat-form-field {
-    width:400px;
+    width: 400px;
     font-size: 18px;
+    text-align: left;
 }
 
 * {

@@ -12,7 +12,7 @@ import { UserService, Errors } from '../functionality';
 })
 export class AuthComponent implements OnInit {
   
-  form: FormGroup;
+  userForm: FormGroup;
   pageName: String = '';
   h1Text: String = '';
   submitted: boolean = false;
@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
     private httpCLient: HttpClient
 
   ) { 
-    this.form = this.formBuilder.group({
+    this.userForm = this.formBuilder.group({
       'username': ['', Validators.required],
       'password': ['', Validators.required]
     });
@@ -39,20 +39,20 @@ export class AuthComponent implements OnInit {
       // Conditional statement checking page name, assigning h1 text accordingly
       this.h1Text = (this.pageName == 'sign-in') ? 'Sign-in' : 'Sign-up';
       if (this.pageName == 'sign-up') {
-        this.form.addControl('email', this.formBuilder.control('',
+        this.userForm.addControl('email', this.formBuilder.control('',
         [Validators.required, Validators.email]));
-        this.form.addControl('confirmPassword', this.formBuilder.control('',
+        this.userForm.addControl('confirmPassword', this.formBuilder.control('',
         [Validators.required]));
       }
     });
   }
 
   submit() {
-    console.log(this.form.getRawValue());
+    console.log(this.userForm.getRawValue());
     this.submitted = true;
     this.errors = {errorsDict: {}};
 
-    const credentials = this.form.value;
+    const credentials = this.userForm.value;
     this.userService.authorize(this.pageName, credentials)
     .subscribe(res => this.router.navigateByUrl('/'),
       err => {

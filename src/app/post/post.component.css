@@ -1,0 +1,30 @@
+.top-spacer { margin-top: 4%; }
+.header-format { margin-bottom: 20px;}
+
+.post-button-format {
+    line-height: 75px;
+    height: 75px;
+    width: 130px;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 145px;
+}
+
+fieldset {
+    border: 0px;
+    text-align: left;
+    min-width: 550px;
+}
+
+mat-form-field {
+    width: 550px;
+    font-size: 18px;
+}
+
+textarea {
+    height: 400px;
+}
+
+* {
+    text-align: center;
+}
