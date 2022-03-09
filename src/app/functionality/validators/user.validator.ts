@@ -39,8 +39,8 @@ function _validatePasswords(password1: AbstractControl, password2: AbstractContr
     return passwordsSame ? null : {Passwords: 'do not match'};
 }
 
-export function validateSignIn(credentials: any): {[key: string]: any} | null{
+export function validateSignIn(credentials: any): Errors | null {
     // Check DB for corresponding username and password
     const validLogin = true;
-    return validLogin ? null : {Credentials: 'invalid'};
+    return validLogin ? null : {errorsDict: {Credentials: 'invalid'}};
 }

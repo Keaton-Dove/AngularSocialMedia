@@ -23,6 +23,7 @@ export class UserService {
     
     sign_in(credentials: any): Observable<User> {
         let err: any = validateSignIn(credentials);
+        console.log(err);
         if (err != null) { return throwError(err); }
             
         return this.httpClient.post<User>('api/users/sign-in/', credentials)
