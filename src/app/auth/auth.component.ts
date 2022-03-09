@@ -60,8 +60,6 @@ export class AuthComponent implements OnInit {
       err => {
         this.submitted = false;
         this.errors = err;
-        //this.errors = {errorsDict: {fake: 'error'}}
-        console.log(this.errors);
     });
   }
 }
