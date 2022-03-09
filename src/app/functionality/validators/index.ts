@@ -1,0 +1,1 @@
+export { validateSignUp, validateSignIn } from './user.validator';

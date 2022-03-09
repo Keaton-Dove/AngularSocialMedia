@@ -1,11 +1,14 @@
+import { Errors } from './../models/errors.model';
+import { Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-//import { HttpService } from './http.service';
 import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models';
+
+import { validateSignUp, validateSignIn } from '../validators';
 
 @Injectable()
 export class UserService {
@@ -22,20 +25,19 @@ export class UserService {
     }
     
     sign_in(credentials: any): Observable<User> {
+        let err: any = validateSignIn(credentials);
+        if (err != null){ return throwError(err.error); }
+
         return this.httpClient.post<User>('api/users/sign-in/', credentials)
             .pipe(map(data => { return data; }));
     }
-    _validateSI(credentials: any) {
-        
-    }
 
     sign_up(credentials: any): Observable<User> {
-        this._validateSU(credentials);
+        let err: any = validateSignUp(credentials);
+        if (err != null){ return throwError(err.error); }
+
         return this.httpClient.post<User>('api/users/', credentials)
             .pipe(map(data => { return data; }));
-    }
-    _validateSU(credentials: any) {
-        console.log(credentials.username);
     }
 
 }
