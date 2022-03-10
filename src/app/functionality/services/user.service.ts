@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError, BehaviorSubject, ReplaySubject } from 'rxjs';
+import { map, distinctUntilChanged } from 'rxjs/operators';
 
 import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,14 +11,28 @@ import { validateSignUp, validateSignIn } from '../validators';
 @Injectable()
 export class UserService {
 
+    private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+    public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+    private activeUserSubject = new BehaviorSubject<User>({} as User);
+    public activeUser = this.activeUserSubject.asObservable().pipe(distinctUntilChanged());
+
     constructor(
         private httpClient: HttpClient,
         private dataService: DataService
     ) {}
     
+    authenticateApp(user: User) {
+        this.activeUserSubject.next(user);
+        this.isAuthenticatedSubject.next(true);
+    }
+
     authorize(formType: String, credentials: any): Observable<User>{
-        if (formType == 'sign-in') { return this.sign_in(credentials); }
-        else { return this.sign_up(credentials); }
+        let user: Observable<User>;
+
+        if (formType == 'sign-in') { user = this.sign_in(credentials); }
+        else { user = this.sign_up(credentials); }
+
+        return user;
     }
     
     sign_in(credentials: any): Observable<User> {
@@ -26,8 +40,12 @@ export class UserService {
         if (err != null) { return throwError(err); }
             
         return this.httpClient.post<User>('api/users/sign-in/', {user: credentials})
-            .pipe(map(data => { return data; }));
-     
+            .pipe(map(data => 
+            { 
+                this.authenticateApp(data);
+                return data; 
+            }));
+        
     }
 
     sign_up(credentials: any): Observable<User> {
@@ -35,7 +53,11 @@ export class UserService {
         if (err != null) { return throwError(err); }
 
         return this.httpClient.post<User>('api/users/', {user: credentials})
-            .pipe(map(data => { return data; }));
+            .pipe(map(data => 
+            { 
+                this.authenticateApp(data);
+                return data; 
+            }));
     }
 
 }
