@@ -41,7 +41,7 @@ import { DatabaseService } from './database.service';
     FunctionalityModule,
     HomeModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DatabaseService),
+    HttpClientInMemoryWebApiModule.forRoot(DatabaseService, {dataEncapsulation: false}),
     PostModule
   ],
   providers: [

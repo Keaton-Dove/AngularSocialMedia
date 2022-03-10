@@ -54,12 +54,13 @@ export class AuthComponent implements OnInit {
 
     const credentials = this.userForm.value;
     this.userService.authorize(this.pageName, credentials)
-    .subscribe(res => {
+    .subscribe(
+      res => {
         console.log(res);
         this.router.navigateByUrl('/'); },
       err => {
         this.submitted = false;
-        this.errors = err;
-    });
+        this.errors = err; }
+    );
   }
 }

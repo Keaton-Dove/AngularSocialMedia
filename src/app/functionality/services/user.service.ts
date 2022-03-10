@@ -15,18 +15,17 @@ export class UserService {
         private httpClient: HttpClient,
         private dataService: DataService
     ) {}
-
-    authorize(formType: String, credentials: any): Observable<any>{
+    
+    authorize(formType: String, credentials: any): Observable<User>{
         if (formType == 'sign-in') { return this.sign_in(credentials); }
         else { return this.sign_up(credentials); }
     }
     
     sign_in(credentials: any): Observable<User> {
         let err: any = validateSignIn(credentials);
-        console.log(err);
         if (err != null) { return throwError(err); }
             
-        return this.httpClient.post<User>('api/users/sign-in/', credentials)
+        return this.httpClient.post<User>('api/users/sign-in/', {user: credentials})
             .pipe(map(data => { return data; }));
      
     }
@@ -35,7 +34,7 @@ export class UserService {
         let err: any = validateSignUp(credentials);
         if (err != null) { return throwError(err); }
 
-        return this.httpClient.post<User>('api/users/', credentials)
+        return this.httpClient.post<User>('api/users/', {user: credentials})
             .pipe(map(data => { return data; }));
     }
 
