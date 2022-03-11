@@ -21,6 +21,10 @@ export class UserService {
         private dataService: DataService
     ) {}
     
+    public get activeUserValue(): User {
+        return this.activeUserSubject.value;
+    }
+
     authenticateApp(user: User) {
         this.activeUserSubject.next(user);
         this.authenticatedSubject.next(true);
@@ -41,13 +45,15 @@ export class UserService {
     }
     
     sign_in(credentials: any): Observable<User> {
+
         let err: any = validateSignIn(credentials);
         if (err != null) { return throwError(err); }
             
         return this.httpClient.post<User>('api/users/sign-in/', credentials)
             .pipe(map(data => 
-            { 
+            {   
                 console.log(data);
+                localStorage.setItem('user', JSON.stringify(data));
                 this.authenticateApp(data);
                 return data; 
             }));
