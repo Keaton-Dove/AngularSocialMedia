@@ -26,6 +26,11 @@ export class UserService {
         this.authenticatedSubject.next(true);
     }
 
+    deauthenticateApp() {
+        this.activeUserSubject.next({} as User);
+        this.authenticatedSubject.next(false);
+    }
+
     authorize(formType: String, credentials: any): Observable<User>{
         let user: Observable<User>;
 
