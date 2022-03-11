@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { ErrorFormatComponent } from './error-format.component';
 import { SaveButtonComponent } from './buttons';
+import { AuthViewDirective } from './auth-view.directive';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+
 @NgModule({
   declarations: [
     SaveButtonComponent,
-    ErrorFormatComponent
+    ErrorFormatComponent,
+    AuthViewDirective
   ],
   imports: [
     CommonModule,
@@ -19,7 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   exports: [
     SaveButtonComponent,
-    ErrorFormatComponent
+    ErrorFormatComponent,
+    AuthViewDirective
   ]
 })
 export class ResourcesModule { }

@@ -11,8 +11,8 @@ import { validateSignUp, validateSignIn } from '../validators';
 @Injectable()
 export class UserService {
 
-    private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
-    public isAuthenticated = this.isAuthenticatedSubject.asObservable();
+    private authenticatedSubject = new ReplaySubject<boolean>(1);
+    public authenticated = this.authenticatedSubject.asObservable();
     private activeUserSubject = new BehaviorSubject<User>({} as User);
     public activeUser = this.activeUserSubject.asObservable().pipe(distinctUntilChanged());
 
@@ -23,7 +23,7 @@ export class UserService {
     
     authenticateApp(user: User) {
         this.activeUserSubject.next(user);
-        this.isAuthenticatedSubject.next(true);
+        this.authenticatedSubject.next(true);
     }
 
     authorize(formType: String, credentials: any): Observable<User>{

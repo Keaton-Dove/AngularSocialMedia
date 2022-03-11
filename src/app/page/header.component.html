@@ -12,17 +12,21 @@
 
     <!-- Right side of toolbar -->
     <div class="justify-right"></div>
-
+        
         <!-- Elements shown when logged in -->
+        <div *authView="true">
+            
+        </div>
         <a  class="gap" mat-stroked-button routerLink="/post" color="black"> New Post </a>
 
         <!-- Elements shown when not logged in -->
-        <a class="gap" mat-raised-button routerLink="/sign-in" color="accent"> Sign-in </a>
-        <a class="gap" mat-button routerLink="/sign-up"        color="black">  Sign-up </a>
+        <div *authView="false">
+            <a class="gap" mat-raised-button routerLink="/sign-in" color="accent"> Sign-in </a>
+            <a class="gap" mat-button routerLink="/sign-up"        color="black">  Sign-up </a>
 
-        <!-- Shown regarless of authorization -->
-        <a class="gap" mat-button routerLink="/about"          color="black">  About   </a>
-
+            <!-- Shown regarless of authorization -->
+            <a class="gap" mat-button routerLink="/about"          color="black">  About   </a>
+        </div>
     <div class="right-indent"></div>      
     
 
