@@ -44,9 +44,10 @@ export class UserService {
         let err: any = validateSignIn(credentials);
         if (err != null) { return throwError(err); }
             
-        return this.httpClient.post<User>('api/users/sign-in/', {user: credentials})
+        return this.httpClient.post<User>('api/users/sign-in/', credentials)
             .pipe(map(data => 
             { 
+                console.log(data);
                 this.authenticateApp(data);
                 return data; 
             }));
@@ -57,7 +58,7 @@ export class UserService {
         let err: any = validateSignUp(credentials);
         if (err != null) { return throwError(err); }
 
-        return this.httpClient.post<User>('api/users/', {user: credentials})
+        return this.httpClient.post<User>('api/users/', credentials)
             .pipe(map(data => 
             { 
                 this.authenticateApp(data);

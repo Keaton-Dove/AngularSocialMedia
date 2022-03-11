@@ -16,6 +16,21 @@
         <!-- Elements shown when logged in -->
         <div *authView="true">
             <a  class="gap" mat-stroked-button routerLink="/post" color="black"> New Post </a>
+
+            <a class="gap" mat-raised-button [matMenuTriggerFor]="belowMenu" color="accent"> {{ user.username }}
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </a>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                </button>
+
+                <button mat-menu-item (click)="signOutCallback()">
+                    <mat-icon>clear</mat-icon>
+                    <span>Sign-Out</span>
+                </button>
+            </mat-menu>
         </div>
         
 

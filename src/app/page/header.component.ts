@@ -1,5 +1,7 @@
+import { RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User, UserService } from '../functionality';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ export class HeaderComponent implements OnInit {
   appLogo: string = "assets/asmLogo.png"
   
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ){}
 
   //@ts-ignore
@@ -19,6 +22,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.activeUser
     .subscribe((userData) => this.user = userData);
+  }
+
+  signOutCallback() {
+    this.userService.deauthenticateApp();
+    this.router.navigateByUrl('/');
   }
   
 }
