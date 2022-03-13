@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProfilesService, HttpService, UserService, DataService } from './services';
+import { ProfilesService, HttpService, UserService, DataService, PostService } from './services';
 
 
 @NgModule({
@@ -12,6 +12,7 @@ import { ProfilesService, HttpService, UserService, DataService } from './servic
   providers: [
     DataService,
     HttpService,
+    PostService,
     ProfilesService,
     UserService
   ]

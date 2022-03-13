@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-
 import { Post } from 'src/app/functionality';
 
 @Component({
@@ -10,7 +9,5 @@ import { Post } from 'src/app/functionality';
 export class PostViewComponent {
   //@ts-ignore
   @Input() post: Post;
-
-  constructor() { }
 
 }

@@ -25,7 +25,9 @@ import { PostViewComponent, PostViewListComponent } from './post-view';
   exports: [
     SaveButtonComponent,
     ErrorFormatComponent,
-    AuthViewDirective
+    AuthViewDirective,
+    PostViewComponent,
+    PostViewListComponent
   ]
 })
 export class ResourcesModule { }
