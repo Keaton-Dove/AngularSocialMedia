@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
 })
-export class PostComponent implements OnInit {
+export class PostComponent {
 
   postForm: FormGroup;
   submitted: boolean = false;
@@ -22,10 +22,6 @@ export class PostComponent implements OnInit {
       'datePosted': [String(this.date.getMonth() + 1) + '/' + String(this.date.getDate()) + '/' + String(this.date.getFullYear())]
     });
   }
-
-  ngOnInit() {
-  }
-
 
   submit() {
     console.log(this.date);

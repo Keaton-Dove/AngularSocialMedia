@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -11,10 +11,5 @@ export class SaveButtonComponent {
 
   constructor(
     private router: Router
-
   ) { }
-
-  ngOnInit(): void {
-  }
-
 }

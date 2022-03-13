@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Post } from 'src/app/functionality';
+import { SaveButtonComponent } from '../buttons';
 
 @Component({
   selector: 'app-post-view',

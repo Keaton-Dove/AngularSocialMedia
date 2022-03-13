@@ -1,0 +1,19 @@
+.post-view {
+    border-bottom: 1px solid grey;
+    margin-left: 5%;
+    margin-right: 30%;
+    padding-bottom: 20px;
+}
+.horizontal-align{
+    display: inline-block;
+}
+.indent {
+    padding: 10px;
+}
+.save-button {
+    float: right;
+}
+
+h3 {
+    padding-bottom: 10px;
+}
