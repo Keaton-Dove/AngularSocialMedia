@@ -40,7 +40,6 @@ function _validatePasswords(password1: AbstractControl, password2: AbstractContr
 }
 
 export function validateSignIn(credentials: any): Errors | null {
-    // Check DB for corresponding username and password
     const validLogin = true;
     return validLogin ? null : {errorsDict: {Credentials: 'invalid'}};
 }

@@ -22,7 +22,7 @@
             </div>
 
             <div>
-                <button mat-raised-button color="primary" class="post-button-format">
+                <button mat-raised-button color="primary" [disabled]="!postForm.valid" class="post-button-format">
                     <b>Post</b>
                 </button>
             </div>

@@ -11,8 +11,21 @@ export class DatabaseService implements InMemoryDbService {
 
   createDb() {
     return {users: [
-      { id: 1, username: 'admin', password: 'admin' }
+      { id: 0, username: "admin", password: "admin", email: "admin@angularsocialmedia.com" },
+      { id: 1, username: "keatonD", password: "seminar", email: "kdove8@capital.edu" }
     ]};
+
+    return {posts: [
+      { username: "admin",
+        title: "Welcome to AngularSocialMedia", 
+        body: "AngularSocialMedia is a revolutionary new social media platform!",
+        datePosted: "3/12/2022"},
+      { username: "keatonD",
+        title: "Anyone else having trouble with verifying credentials?",
+        body: "When I submit a sign-in form I can't figure out a way to verify user credentials",
+        datePosted: "3/12/2022"},
+    ]};
+
   }
 
   // generateId(users: User[]): number {

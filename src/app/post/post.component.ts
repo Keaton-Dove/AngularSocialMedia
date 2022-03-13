@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -11,6 +10,7 @@ export class PostComponent implements OnInit {
 
   postForm: FormGroup;
   submitted: boolean = false;
+  date = new Date();
 
   constructor(
     private formBuilder: FormBuilder
@@ -18,7 +18,8 @@ export class PostComponent implements OnInit {
   ) { 
     this.postForm = this.formBuilder.group({
       'title': ['', Validators.required],
-      'body': ['', Validators.required]
+      'body': ['', Validators.required],
+      'datePosted': [String(this.date.getMonth() + 1) + '/' + String(this.date.getDate()) + '/' + String(this.date.getFullYear())]
     });
   }
 
@@ -27,6 +28,8 @@ export class PostComponent implements OnInit {
 
 
   submit() {
+    console.log(this.date);
+    //this.postForm.setValue('timePosted': this.date)
     console.log(this.postForm.getRawValue());
   }
 }
