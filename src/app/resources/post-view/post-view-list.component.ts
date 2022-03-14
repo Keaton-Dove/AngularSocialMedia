@@ -13,9 +13,7 @@ export class PostViewListComponent {
   posts: Post[];
 
   constructor(private postService: PostService)
-  { this.fetchPosts();
-    //@ts-ignore
-    console.log(this.posts) }
+  { this.fetchPosts(); }
 
   fetchPosts() {
     this.postService.loadPosts().subscribe(data => this.posts = data);

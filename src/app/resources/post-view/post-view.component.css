@@ -1,8 +1,12 @@
 .post-view {
+    display: grid;
+    grid-template-columns: 2;
+
     border-bottom: 1px solid grey;
-    margin-left: 5%;
+    margin-left: 18%;
     margin-right: 30%;
     padding-bottom: 20px;
+    max-width: 1000px;
 }
 .horizontal-align{
     display: inline-block;
@@ -10,8 +14,14 @@
 .indent {
     padding: 10px;
 }
+.left-side {
+    grid-column: 1;
+}
 .save-button {
+    grid-column: 2;
     float: right;
+    justify-self: end;
+    position: relative;
 }
 
 h3 {

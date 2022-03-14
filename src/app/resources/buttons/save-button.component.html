@@ -1,4 +1,11 @@
-<a mat-fab color="primary"> 
-    <mat-icon>turned_in_not
-    </mat-icon>
-</a>
+<button mat-fab color="accent" (click)="toggleSave()"> 
+    <div *ngIf="toggle; else notToggled">
+        <mat-icon>turned_in</mat-icon>
+    </div>
+    <ng-template #notToggled>
+        <div>
+            <mat-icon>turned_in_not</mat-icon>
+        </div>
+    </ng-template>
+
+</button>

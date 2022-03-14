@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { PostService } from './../functionality';
 
 @Component({
   selector: 'app-post',
@@ -13,8 +16,9 @@ export class PostComponent {
   date = new Date();
 
   constructor(
-    private formBuilder: FormBuilder
-
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private postService: PostService
   ) { 
     this.postForm = this.formBuilder.group({
       'title': ['', Validators.required],
@@ -24,8 +28,17 @@ export class PostComponent {
   }
 
   submit() {
-    console.log(this.date);
-    //this.postForm.setValue('timePosted': this.date)
-    console.log(this.postForm.getRawValue());
+    this.submitted = true;
+    
+    const postContent = this.postForm.getRawValue();
+    this.postService.createPost(postContent)
+    .subscribe(
+      res => {
+        console.log(res);
+        this.router.navigateByUrl('/'); },
+      err => {
+        this.submitted = false;
+        console.error(err); }
+    );
   }
 }

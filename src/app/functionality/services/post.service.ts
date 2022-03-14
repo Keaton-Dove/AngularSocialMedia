@@ -15,12 +15,10 @@ export class PostService {
         return this.httpClient.get<Post[]>('api/posts');
     }
     
-    createPost(post: any): Observable<Post> {
-        return this.httpClient.post<Post>('api/posts/', post)
+    createPost(postContent: any): Observable<Post> {
+        return this.httpClient.post<Post>('api/posts/', postContent)
         .pipe(map(data => {
             return data;
         }));
     }
-
-
 }
