@@ -6,7 +6,7 @@ import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models';
 
-import { validateSignUp, validateSignIn } from '../validators';
+import { UserValidator } from '../validators';
 
 @Injectable()
 export class UserService {
@@ -18,13 +18,14 @@ export class UserService {
 
     constructor(
         private httpClient: HttpClient,
-        private dataService: DataService
+        private dataService: DataService,
+        private userValidator: UserValidator
     ) {}
     
     public get activeUserValue(): User {
         return this.activeUserSubject.value;
     }
-    
+
     authenticateApp(user: User) {
         this.activeUserSubject.next(user);
         this.authenticatedSubject.next(true);
@@ -46,13 +47,12 @@ export class UserService {
     
     sign_in(credentials: any): Observable<User> {
 
-        let err: any = validateSignIn(credentials);
+        let err: any = this.userValidator.validateSignIn(credentials);
         if (err != null) { return throwError(err); }
             
         return this.httpClient.post<User>('api/users/sign-in/', credentials)
             .pipe(map(data => 
             {   
-                console.log(data);
                 localStorage.setItem('user', JSON.stringify(data));
                 this.authenticateApp(data);
                 return data; 
@@ -61,7 +61,7 @@ export class UserService {
     }
 
     sign_up(credentials: any): Observable<User> {
-        let err: any = validateSignUp(credentials);
+        let err: any = this.userValidator.validateSignUp(credentials);
         if (err != null) { return throwError(err); }
 
         return this.httpClient.post<User>('api/users/', credentials)
