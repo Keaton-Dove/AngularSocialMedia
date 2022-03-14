@@ -27,4 +27,4 @@
     Clone this repository, open a terminal in the project and enter the command: `npm install`
     While the terminal is in the main AngularSocialMedia directory, enter: `ng serve` and navigate to `http://localhost:4200/` in a web browser
 
-Last updated 3/12/2022
+Last updated 3/13/2022

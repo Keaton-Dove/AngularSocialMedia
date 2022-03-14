@@ -24,7 +24,7 @@ export class UserService {
     public get activeUserValue(): User {
         return this.activeUserSubject.value;
     }
-
+    
     authenticateApp(user: User) {
         this.activeUserSubject.next(user);
         this.authenticatedSubject.next(true);
