@@ -1,0 +1,9 @@
+.banner {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 9vh;
+    width: 100vh;
+    background-color: rgb(42, 42, 42);
+    color: white;
+}

@@ -12,18 +12,23 @@
 
 fieldset {
     border: 0px;
-    text-align: left;
     min-width: 550px;
 }
 
 mat-form-field {
     width: 550px;
     font-size: 18px;
+    text-align: left;
 }
 
 textarea {
     height: 1000px;
     max-height: 40vh;
+    text-align: left;
+}
+
+input {
+    text-align: left;
 }
 
 * {

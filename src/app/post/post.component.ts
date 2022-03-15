@@ -33,6 +33,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.userService.activeUser
     .subscribe((userData) => {
+      console.log(userData);
       this.username = userData.username;
       this.postForm.addControl('username', this.formBuilder.control(this.username));
     });
