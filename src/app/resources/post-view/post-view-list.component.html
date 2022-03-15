@@ -1,2 +1,3 @@
-<app-post-view *ngFor="let post of posts" [post]="post">
+<!-- Add posts to view in reverse order that they were posted -->
+<app-post-view *ngFor="let post of posts.slice().reverse()" [post]="post">
 </app-post-view>
