@@ -13,6 +13,7 @@ export class UserValidator {
 
     constructor (
         private httpClient: HttpClient
+
     ){ this.users = this.loadUsers(); }
 
     loadUsers(): Observable<User[]> {
@@ -59,7 +60,24 @@ export class UserValidator {
     }
 
     validateSignIn(credentials: any): Errors | null {
-        let validLogin: boolean = true;
+        let validLogin: boolean = false;
+
+        if (this.users){
+            console.log(this.users)
+            this.users.forEach((user) => {
+                console.log(user)
+                // Somehow code jumps from here to line 78. Does not perform check until after the return
+                for(let u of user){
+                    console.log(u)
+                    // if (credentials.username == u.username && credentials.password == u.password) {
+                    //     validLogin = true;
+                    //     console.log(validLogin);
+                    //     break;
+                    // }
+                }
+            });
+        }
+
         return validLogin ? null : {errorsDict: {Credentials: 'invalid'}};
     }
 }

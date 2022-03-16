@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProfilesService, HttpService, UserService, DataService, PostService } from './services';
+import { HttpService, UserService, DataService, PostService } from './services';
 import { UserValidator } from './validators';
 
 @NgModule({
@@ -13,7 +13,6 @@ import { UserValidator } from './validators';
     DataService,
     HttpService,
     PostService,
-    ProfilesService,
     UserService,
     UserValidator
   ]
