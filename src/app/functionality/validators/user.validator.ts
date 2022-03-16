@@ -62,22 +62,18 @@ export class UserValidator {
     validateSignIn(credentials: any): Errors | null {
         let validLogin: boolean = false;
 
-        if (this.users){
-            console.log(this.users)
-            this.users.forEach((user) => {
-                console.log(user)
-                // Somehow code jumps from here to line 78. Does not perform check until after the return
-                for(let u of user){
-                    console.log(u)
-                    // if (credentials.username == u.username && credentials.password == u.password) {
-                    //     validLogin = true;
-                    //     console.log(validLogin);
-                    //     break;
-                    // }
+        this.users.forEach(user => {
+            // Somehow code jumps from here to line 78. Does not perform check until after the return
+            for(let u of user){
+                if (credentials.username == u.username && credentials.password == u.password) {
+                    validLogin = true;
+                    console.log(validLogin);
+                    break;
                 }
-            });
-        }
+            }
+        });
 
+        console.log(validLogin);
         return validLogin ? null : {errorsDict: {Credentials: 'invalid'}};
     }
 }
