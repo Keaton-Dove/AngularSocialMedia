@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError, BehaviorSubject, ReplaySubject } from 'rxjs';
-import { map, distinctUntilChanged } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,7 @@ export class UserService {
     private authenticatedSubject = new ReplaySubject<boolean>(1);
     public authenticated = this.authenticatedSubject.asObservable();
     private activeUserSubject = new BehaviorSubject<User>({} as User);
-    public activeUser = this.activeUserSubject.asObservable().pipe(distinctUntilChanged());
+    public activeUser = this.activeUserSubject.asObservable();
 
     constructor(
         private httpClient: HttpClient,
