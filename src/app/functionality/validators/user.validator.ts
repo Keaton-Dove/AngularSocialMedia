@@ -60,20 +60,24 @@ export class UserValidator {
     }
 
     validateSignIn(credentials: any): Errors | null {
-        let validLogin: boolean = false;
+        let validLogin: boolean = true;
 
-        this.users.forEach(user => {
-            // Somehow code jumps from here to line 78. Does not perform check until after the return
-            for(let u of user){
-                if (credentials.username == u.username && credentials.password == u.password) {
-                    validLogin = true;
-                    console.log(validLogin);
-                    break;
-                }
-            }
-        });
+        // This code is the closest I can get to checking user credentials,
+        // It does not work because forEach is a 'blocking' method that runs after the return statement
 
-        console.log(validLogin);
+        // let validLogin: boolean = false;
+        // this.users.forEach(user => {
+        //     // Somehow code jumps from here to line 78. Does not perform check until after the return
+        //     for(let u of user){
+        //         if (credentials.username == u.username && credentials.password == u.password) {
+        //             validLogin = true;
+        //             console.log(validLogin);
+        //             break;
+        //         }
+        //     }
+        // });
+
+        // console.log(validLogin);
         return validLogin ? null : {errorsDict: {Credentials: 'invalid'}};
     }
 }

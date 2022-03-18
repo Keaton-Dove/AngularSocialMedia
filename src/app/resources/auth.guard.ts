@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { UserService } from '../functionality';
 
+// Will not work until Database is implemented and app can stay authenticated after refresh
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
 

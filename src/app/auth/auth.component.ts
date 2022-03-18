@@ -54,11 +54,9 @@ export class AuthComponent implements OnInit {
     this.userService.authorize(this.pageName, credentials)
     .subscribe(
       res => {
-        console.log(res);
         this.router.navigateByUrl('/'); },
       err => {
         this.submitted = false;
-        console.error(err);
         this.errors = err; }
     );
   }
